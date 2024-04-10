@@ -1,0 +1,114 @@
+.hero
+  padding: 240px 40px
+  position: relative
+  height: 80vh
+  background: $turquoise url("../images/bg_hero_full.webp") no-repeat
+  background-position: 0 0, 0% 25%, 0 0
+  background-size: cover
+  &__shadow-wrapper
+    position: absolute
+    z-index: 10
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background: linear-gradient(hsla(0, 0%, 0%, 0.15), hsla(0, 0%, 0%, 0.4))
+    //background-color: hsla(0, 0%, 0%, 0.25)
+  &__text
+    position: relative
+    z-index: 20
+    margin-left: auto
+    max-width: 640px
+    color: $white
+    font-weight: 400
+    p
+      font-family: Nunito, sans-serif
+      font-size: 24px
+      line-height: 1.5
+      font-weight: 400
+    .title_h1
+      font-family: Podkova, sans-serif
+      font-size: 58px
+      line-height: 80px
+      font-weight: 700
+
+.benefits
+  padding: 36px 0
+  background-color: #ECF7EB
+  &__item
+    display: flex
+    max-width: 900px
+    background-color: white
+    -webkit-border-radius: 16px
+    -moz-border-radius: 16px
+    border-radius: 16px
+    img
+      max-width: 400px
+.factors
+  &__list
+    display: flex
+    gap: 16px
+  &__item
+    flex: 1
+    -webkit-border-radius: 16px
+    -moz-border-radius: 16px
+    border-radius: 16px
+    background-color: #ECF7EB
+    img
+      max-width: 100%
+
+.abilities
+  &__list
+    display: flex
+    justify-content: center
+    //grid-template-columns: repeat( auto-fit, minmax(300px, 480px) )
+    //grid-auto-columns: minmax(1fr, 300px)
+    flex-flow: wrap
+    gap: 16px
+  &__item
+    display: flex
+    align-items: center
+    flex: 1
+    min-width: 400px
+    max-width: 700px
+    -webkit-border-radius: 16px
+    -moz-border-radius: 16px
+    border-radius: 16px
+    background-color: #ECF7EB
+    img
+      max-width: 172px
+
+.contacts
+  display: flex
+  flex-flow: wrap-reverse
+  background-color: $darkGreen
+  &__half-block
+    flex: 1
+    min-width: 300px
+    &_right
+      padding: 40px 12px 40px 40px
+      display: flex
+      align-items: center
+  &__item
+    margin-bottom: 16px
+    color: $white
+    font-family: Nunito, sans-serif
+    font-size: 24px
+    font-weight: 400
+  &__link
+    color: $white
+    font-family: Nunito, sans-serif
+    font-size: 24px
+    transition: color 200ms ease-in-out
+    &_email
+      font-weight: 700
+    &:hover
+      color: $turquoiseLight
+
+.swiper
+  &-pagination-bullet
+    background-color: $turquoiseLight
+    &-active
+      background-color: $darkGreen
+.swiper-button-next, .swiper-button-prev
+  color: $darkGreen

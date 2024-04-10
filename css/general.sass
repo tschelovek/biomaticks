@@ -1,0 +1,328 @@
+*, *::before, *::after
+  margin: 0
+  +box
+
+html
+  scroll-behavior: smooth
+
+@media screen and (prefers-reduced-motion: reduce)
+  html
+    scroll-behavior: auto
+
+body
+  background-color: $white
+  color: $black
+  font-family: Podkova, sans-serif
+
+ul
+  margin: 0
+  padding: 0
+  list-style: none
+
+a
+  text-decoration: none
+
+input[type="number"].no-arrows
+  -moz-appearance: textfield
+  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+    -webkit-appearance: none
+    margin: 0
+
+.bg
+  &_black
+    background-color: $black
+    color: $white
+  &_turquoise
+    background-color: hsla(176, 100%, 33%, 0.08)
+
+.turquoise
+  color: $turquoise
+
+.underline
+  text-decoration: underline
+
+main
+  margin-top: 60px
+  font-size: 18px
+  img
+    max-width: 600px
+
+.container
+  padding: 0 20px
+  margin: 0 auto
+  max-width: 1260px
+  width: 100%
+  &_body
+    position: relative
+    overflow: hidden
+  &_560
+    padding: 0 16px
+    margin: 0 auto
+    max-width: 592px
+    width: 100%
+
+
+.wrapper
+  &_center
+    display: flex
+    justify-content: center
+
+.title
+  &_h2
+    color: $turquoise
+    font-size: 50px
+    line-height: 1
+    font-family: Podkova, sans-serif
+    font-weight: 700
+    text-align: center
+  &_h3
+    margin: 10px 0
+    font-size: 40px
+    font-weight: 600
+    color: $darkGreen
+
+.logo
+  display: inline-block
+  min-width: 80px
+  min-height: 42px
+  &__link
+    cursor: pointer
+  &__img
+    max-width: 200px
+
+.btn
+  border: none
+  font-family: Muller, sans-serif
+  cursor: pointer
+  text-decoration: none
+  &_orange
+    padding: 16px 35px
+    display: block
+    max-width: 300px
+    margin-top: 10px
+    background-color: hsl(14, 100%, 68%)
+    color: #fff
+    font-family: Podkova, sans-serif
+    font-size: 20px
+    line-height: 1.3
+    letter-spacing: 2px
+    text-transform: uppercase
+    transition: background-color 0.3s
+    &:hover
+      background-color: hsl(7, 100%, 60%)
+  &_burger
+    padding: 0
+    position: relative
+    +center
+    width: 28px
+    height: 20px
+    font-size: 0
+    background-color: inherit
+    border: none
+    z-index: 107
+    cursor: pointer
+    &:focus
+      outline: none
+    &:focus-visible
+      outline: var(--purple)
+    span
+      display: block
+      width: 100%
+      height: 2px
+      background-color: $darkGreen
+      transition: transform 0.3s, background-color 0.3s ease-out
+    span::before, span::after
+      content: ''
+      position: absolute
+      right: 0
+      display: block
+      width: 100%
+      height: 2px
+      background-color: $darkGreen
+      transition: transform 0.3s ease-in-out
+    span::before
+      top: 0
+    span::after
+      bottom: 0
+    &.active span
+      background-color: transparent
+    &.active span::before
+      background-color: $turquoise
+      transform: rotate(45deg)
+      top: 9px
+    &.active span::after
+      background-color: $turquoise
+      transform: rotate(-45deg)
+      bottom: 9px
+  &_close
+    border: none
+    background-color: transparent
+    width: 40px
+    height: 40px
+    cursor: pointer
+    span
+      position: relative
+      font-size: 0
+      display: block
+      width: 100%
+      height: 2px
+      background-color: $darkGreen
+      transform: rotate(45deg)
+      transition: background-color 0.3s
+      &::before
+        content: ''
+        position: absolute
+        right: 0
+        top: 0
+        left: 0
+        display: block
+        width: 100%
+        height: 2px
+        background-color: $darkGreen
+        transform: rotate(90deg)
+        transition: background-color 0.3s
+    &:hover
+      span, span::before
+        background-color: $turquoise
+
+.nav
+  &__list
+    display: flex
+    flex-flow: wrap
+    gap: 12px
+  &__item
+    display: block
+  &__link
+    padding: 4px
+    display: block
+    white-space: nowrap
+    font-size: 18px
+    font-weight: 700
+    transition: color 200ms ease-in-out
+
+.modal
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 1050
+  display: none
+  overflow: hidden
+  outline: 0
+  transition: background-color 0.3s
+  &.open
+    overflow-x: hidden
+    overflow-y: auto
+    background-color: hsla(0, 0%, 0%, 0.5)
+    .modal
+      &__dialog
+        transform: translateY(0)
+  &__dialog
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100%
+    width: 100%
+    transform: translateY(-100%)
+    transition: transform 0.6s
+  &__content
+    padding: 32px
+    background-color: $white
+    width: 550px
+    max-width: 100%
+  &__title
+    margin-bottom: 20px
+    font-size: 36px
+    line-height: 1.4
+    font-weight: 400
+    text-align: center
+    color: $turquoise
+  &__close-wrapper
+    display: flex
+    flex-flow: row-reverse
+  &__fields-wrapper
+    display: flex
+    flex-flow: column
+    gap: 16px
+    label
+      font-size: 20px
+      text-transform: uppercase
+      color: $turquoiseLight
+  &__input
+    margin-bottom: 18px
+    padding: 21px 20px
+    display: block
+    width: 100%
+    height: 38px
+    border: 1px solid #e4e4e4
+    border-radius: 0
+    -webkit-transition: border-color 400ms ease
+    transition: border-color 400ms ease
+    font-family: Nunito, sans-serif
+    color: #000
+    font-size: 18px
+    line-height: 26px
+    font-weight: 500
+    text-align: left
+    &::placeholder
+      color: hsl(217, 17%, 91%)
+      font-weight: 300
+    &:active
+      border-color: hsl(222, 7%, 28%)
+    &:focus
+      outline:	hsl(217, 17%, 91%)
+  .btn_submit
+    margin-top: 32px
+
+.quote
+  padding: 8px 30px 20px
+  position: relative
+  border-bottom: 3px solid hsla(14, 100%, 68%, 0.56)
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 20px
+    width: 5px
+    background-color: $darkGreen
+
+.half
+  &__wrapper
+    display: flex
+  &__block
+    flex: 1
+
+.iframe
+  &__wrapper
+    width: 553px
+    height: 595px
+    padding: 0
+    overflow: hidden
+  &_resp
+    width: 1105px
+    height: 1190px
+    border: 0
+    -ms-transform: scale(0.5)
+    -moz-transform: scale(0.5)
+    -o-transform: scale(0.5)
+    -webkit-transform: scale(0.5)
+    transform: scale(0.5)
+    -ms-transform-origin: 0 0
+    -moz-transform-origin: 0 0
+    -o-transform-origin: 0 0
+    -webkit-transform-origin: 0 0
+    transform-origin: 0 0
+  //&__wrapper
+  //  position: relative
+  //  overflow: hidden
+  //  padding-top: 56.25%
+  //&_resp
+  //  position: absolute
+  //  top: 0
+  //  left: 0
+  //  width: 100%
+  //  height: 100%
+  //  border: 0
+  //

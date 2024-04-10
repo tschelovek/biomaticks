@@ -1,0 +1,21 @@
+gwd-image.scaled-proportionally > div.intermediate-element > img {
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+gwd-image {
+  display: inline-block;
+}
+
+gwd-image > div.intermediate-element {
+  transform-style: unset;
+  width: 100%;
+  height: 100%;
+}
+
+gwd-image > div.intermediate-element > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/*# sourceMappingURL=hive.c88ca2aa.css.map */
