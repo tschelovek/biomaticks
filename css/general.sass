@@ -12,7 +12,7 @@ html
 body
   background-color: $white
   color: $black
-  font-family: Podkova, sans-serif
+  font-family: Nunito, sans-serif
 
 ul
   margin: 0
@@ -24,19 +24,26 @@ a
 
 input[type="number"].no-arrows
   -moz-appearance: textfield
+
   &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
     -webkit-appearance: none
     margin: 0
+
+label
+  visibility: hidden
+  position: absolute
+  width: 0
+  font-size: 0
 
 .bg
   &_black
     background-color: $black
     color: $white
-  &_turquoise
-    background-color: hsla(176, 100%, 33%, 0.08)
 
-.turquoise
-  color: $turquoise
+.green
+  color: $green
+  &_dark
+    color: $darkGreen
 
 .underline
   text-decoration: underline
@@ -44,6 +51,7 @@ input[type="number"].no-arrows
 main
   margin-top: 60px
   font-size: 18px
+
   img
     max-width: 600px
 
@@ -52,15 +60,16 @@ main
   margin: 0 auto
   max-width: 1260px
   width: 100%
+
   &_body
     position: relative
     overflow: hidden
+
   &_560
     padding: 0 16px
     margin: 0 auto
     max-width: 592px
     width: 100%
-
 
 .wrapper
   &_center
@@ -68,48 +77,60 @@ main
     justify-content: center
 
 .title
+  &_h1
+    display: block
+    font-size: 106px
+    font-family: Comfortaa, sans-serif
+    font-weight: 400
+    text-align: center
+    line-height: 1.1
+    &_small
+      font-size: 30px
+      line-height: 1.2
+      font-weight: 400
+
   &_h2
-    color: $turquoise
-    font-size: 50px
+    color: $green
+    font-size: 60px
     line-height: 1
-    font-family: Podkova, sans-serif
+    font-family: Comfortaa, sans-serif
     font-weight: 700
     text-align: center
   &_h3
     margin: 10px 0
     font-size: 40px
     font-weight: 600
-    color: $darkGreen
+    color: $green
 
 .logo
   display: inline-block
   min-width: 80px
-  min-height: 42px
   &__link
     cursor: pointer
-  &__img
-    max-width: 200px
+    &__image
+      margin-bottom: -2px
+      width: 40px
+      height: 48px
+  span
+    font-family: Comfortaa, sans-serif
+    font-weight: 400
+    font-size: 34px
 
 .btn
   border: none
   font-family: Muller, sans-serif
   cursor: pointer
   text-decoration: none
-  &_orange
-    padding: 16px 35px
-    display: block
-    max-width: 300px
-    margin-top: 10px
-    background-color: hsl(14, 100%, 68%)
-    color: #fff
-    font-family: Podkova, sans-serif
-    font-size: 20px
-    line-height: 1.3
-    letter-spacing: 2px
-    text-transform: uppercase
-    transition: background-color 0.3s
-    &:hover
-      background-color: hsl(7, 100%, 60%)
+
+  &_green
+    padding: 8px 30px
+    font-family: Comfortaa, sans-serif
+    font-size: 28px
+    color: white
+    background-color: $green
+    height: 60px
+    +center()
+    +border-radius(30px)
   &_burger
     padding: 0
     position: relative
@@ -121,16 +142,20 @@ main
     border: none
     z-index: 107
     cursor: pointer
+
     &:focus
       outline: none
+
     &:focus-visible
       outline: var(--purple)
+
     span
       display: block
       width: 100%
       height: 2px
       background-color: $darkGreen
       transition: transform 0.3s, background-color 0.3s ease-out
+
     span::before, span::after
       content: ''
       position: absolute
@@ -140,26 +165,33 @@ main
       height: 2px
       background-color: $darkGreen
       transition: transform 0.3s ease-in-out
+
     span::before
       top: 0
+
     span::after
       bottom: 0
+
     &.active span
       background-color: transparent
+
     &.active span::before
       background-color: $turquoise
       transform: rotate(45deg)
       top: 9px
+
     &.active span::after
       background-color: $turquoise
       transform: rotate(-45deg)
       bottom: 9px
+
   &_close
     border: none
     background-color: transparent
     width: 40px
     height: 40px
     cursor: pointer
+
     span
       position: relative
       font-size: 0
@@ -169,6 +201,7 @@ main
       background-color: $darkGreen
       transform: rotate(45deg)
       transition: background-color 0.3s
+
       &::before
         content: ''
         position: absolute
@@ -181,6 +214,7 @@ main
         background-color: $darkGreen
         transform: rotate(90deg)
         transition: background-color 0.3s
+
     &:hover
       span, span::before
         background-color: $turquoise
@@ -190,8 +224,10 @@ main
     display: flex
     flex-flow: wrap
     gap: 12px
+
   &__item
     display: block
+
   &__link
     padding: 4px
     display: block
@@ -211,13 +247,16 @@ main
   overflow: hidden
   outline: 0
   transition: background-color 0.3s
+
   &.open
     overflow-x: hidden
     overflow-y: auto
     background-color: hsla(0, 0%, 0%, 0.5)
+
     .modal
       &__dialog
         transform: translateY(0)
+
   &__dialog
     display: flex
     justify-content: center
@@ -226,11 +265,13 @@ main
     width: 100%
     transform: translateY(-100%)
     transition: transform 0.6s
+
   &__content
     padding: 32px
     background-color: $white
     width: 550px
     max-width: 100%
+
   &__title
     margin-bottom: 20px
     font-size: 36px
@@ -238,17 +279,21 @@ main
     font-weight: 400
     text-align: center
     color: $turquoise
+
   &__close-wrapper
     display: flex
     flex-flow: row-reverse
+
   &__fields-wrapper
     display: flex
     flex-flow: column
     gap: 16px
+
     label
       font-size: 20px
       text-transform: uppercase
-      color: $turquoiseLight
+      color: green
+
   &__input
     margin-bottom: 18px
     padding: 21px 20px
@@ -265,13 +310,17 @@ main
     line-height: 26px
     font-weight: 500
     text-align: left
+
     &::placeholder
       color: hsl(217, 17%, 91%)
       font-weight: 300
+
     &:active
       border-color: hsl(222, 7%, 28%)
+
     &:focus
-      outline:	hsl(217, 17%, 91%)
+      outline: hsl(217, 17%, 91%)
+
   .btn_submit
     margin-top: 32px
 
@@ -279,6 +328,7 @@ main
   padding: 8px 30px 20px
   position: relative
   border-bottom: 3px solid hsla(14, 100%, 68%, 0.56)
+
   &::before
     content: ''
     position: absolute
@@ -291,6 +341,7 @@ main
 .half
   &__wrapper
     display: flex
+
   &__block
     flex: 1
 
@@ -300,6 +351,7 @@ main
     height: 595px
     padding: 0
     overflow: hidden
+
   &_resp
     width: 1105px
     height: 1190px
@@ -314,15 +366,51 @@ main
     -o-transform-origin: 0 0
     -webkit-transform-origin: 0 0
     transform-origin: 0 0
-  //&__wrapper
-  //  position: relative
-  //  overflow: hidden
-  //  padding-top: 56.25%
-  //&_resp
-  //  position: absolute
-  //  top: 0
-  //  left: 0
-  //  width: 100%
-  //  height: 100%
-  //  border: 0
-  //
+//&__wrapper
+//  position: relative
+//  overflow: hidden
+//  padding-top: 56.25%
+//&_resp
+//  position: absolute
+//  top: 0
+//  left: 0
+//  width: 100%
+//  height: 100%
+//  border: 0
+//
+
+.tabcontent
+  animation: fadeEffect 1s
+
+@keyframes fadeEffect
+  from
+   opacity: 0
+  to
+   opacity: 1
+
+
+.flip-vertical-left
+  -webkit-animation: flip-vertical-left 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both
+  animation: flip-vertical-left 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both
+
+@-webkit-keyframes flip-vertical-left
+  0%
+    -webkit-transform: rotateY(0)
+    transform: rotateY(0)
+
+  100%
+    -webkit-transform: rotateY(-180deg)
+    transform: rotateY(-180deg)
+
+
+@keyframes flip-vertical-left
+  0%
+    -webkit-transform: rotateY(0)
+    transform: rotateY(0)
+
+  100%
+    -webkit-transform: rotateY(-180deg)
+    transform: rotateY(-180deg)
+
+
+

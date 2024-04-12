@@ -2,9 +2,10 @@
   padding: 240px 40px
   position: relative
   height: 80vh
-  background: $turquoise url("../images/bg_hero_full.webp") no-repeat
+  background: $themeGreen url("../images/bg_hero_full.webp") no-repeat
   background-position: 0 0, 0% 25%, 0 0
   background-size: cover
+  color: white
   &__shadow-wrapper
     position: absolute
     z-index: 10
@@ -26,11 +27,6 @@
       font-size: 24px
       line-height: 1.5
       font-weight: 400
-    .title_h1
-      font-family: Podkova, sans-serif
-      font-size: 58px
-      line-height: 80px
-      font-weight: 700
 
 .benefits
   padding: 36px 0
@@ -44,18 +40,71 @@
     border-radius: 16px
     img
       max-width: 400px
+.problem, .solution
+  padding: 50px 0
+
 .factors
+  padding: 32px 0
+  .title_h3
+    margin: 0 auto 24px
+    font-size: 44px
+    font-weight: 400
+    line-height: 1.2
+    text-align: center
   &__list
+    margin-top: 40px
     display: flex
     gap: 16px
   &__item
+    padding: 10px 20px 20px 20px
     flex: 1
     -webkit-border-radius: 16px
     -moz-border-radius: 16px
     border-radius: 16px
     background-color: #ECF7EB
+    text-align: center
+    &__image-wrapper
+      height: 128px
+      +center()
     img
       max-width: 100%
+      max-height: 100%
+    p
+      font-size: 21px
+      font-weight: 300
+      line-height: 1.2
+    &:nth-child(4), &:nth-child(5)
+      img
+        height: 80%
+
+.systema
+  &__item
+    width: 50%
+    aspect-ratio: 1
+    -webkit-border-radius: 16px
+    -moz-border-radius: 16px
+    border-radius: 16px
+    background-color: #ECF7EB
+    transform: translate3d(0, 0, 0)
+    transform-style: preserve-3d
+    z-index: 900
+    &__intro
+      position: absolute
+      width: 100%
+      height: 100%
+      -webkit-backface-visibility: hidden
+      backface-visibility: hidden
+      background-color: #ECF7EB
+      z-index: 20
+    &__info
+      position: absolute
+      width: 100%
+      height: 100%
+      -webkit-backface-visibility: hidden
+      backface-visibility: hidden
+      background-color: #ECF7EB
+      z-index: 10
+
 
 .abilities
   &__list
@@ -66,9 +115,11 @@
     flex-flow: wrap
     gap: 16px
   &__item
+    padding: 20px 64px 20px 0
+    flex: 1
     display: flex
     align-items: center
-    flex: 1
+    gap: 40px
     min-width: 400px
     max-width: 700px
     -webkit-border-radius: 16px
@@ -78,36 +129,138 @@
     img
       max-width: 172px
 
-.contacts
-  display: flex
-  flex-flow: wrap-reverse
-  background-color: $darkGreen
-  &__half-block
-    flex: 1
-    min-width: 300px
-    &_right
-      padding: 40px 12px 40px 40px
+.about
+  padding: 50px 0
+  &__tabs-wrapper
+    display: flex
+    gap: 10%
+  &__tab-list
       display: flex
+      flex-flow: column
+      flex: 3
+  &__tab
+    border: none
+    background-color: white
+    span
+      margin: 0.5em 0 1em
+      display: block
+      font-size: 36px
+      font-family: Nunito, sans-serif
+    img
+      opacity: 0.5
+      width: 240px
+      height: 240px
+      +round()
+      object-fit: cover
+    &.active
+      img
+        opacity: 1
+  &__content
+    &__tab
+      padding: 32px 44px
+      border-radius: 12px
+      background-color: #ECF7EB
+    &__header
+      margin-bottom: 32px
+      display: flex
+      gap: 1rem
+      justify-content: space-between
       align-items: center
-  &__item
-    margin-bottom: 16px
-    color: $white
-    font-family: Nunito, sans-serif
-    font-size: 24px
+      font-family: Comfortaa, sans-serif
+    &__title
+      flex: 1
+      font-weight: 400
+      font-size: 36px
+    &__occupation
+      flex: 1
+      font-size: 22px
+      color: $green
+      text-transform: uppercase
+      text-align: right
+
+
+.contacts
+  padding: 20px 0
+  &__content
+    margin-top: 20px
+    display: flex
+  &__block
+    &_1
+      flex: 4
+    &_2
+      flex: 3
+    &_3
+      flex: 3
+  &__item:not(:last-child)
+    margin-bottom: 30px
+  &__title
+    font-size: 30px
+    font-family: Comfortaa, sans-serif
+    line-height: 1.2
+    color: $themeGreen
+  &__text
+    font-size: 20px
     font-weight: 400
+    line-height: 1.2
+    span
+      white-space: nowrap
   &__link
-    color: $white
-    font-family: Nunito, sans-serif
-    font-size: 24px
-    transition: color 200ms ease-in-out
-    &_email
-      font-weight: 700
+    position: relative
+    font-size: 22px
+    font-weight: 250
+    color: $green
+    //text-decoration: underline
+    &::after
+      content: ''
+      position: absolute
+      width: 100%
+      left: 0
+      bottom: 6px
+      height: 1px
+      background-color: $green
+      transition: bottom 0.2s ease, width 0.2s ease, left 0.2s ease, height 0.2s ease
     &:hover
-      color: $turquoiseLight
+      &::after
+        bottom: 3px
+        width: calc(100% + 6px)
+        left: -3px
+        height: 2px
+    &:active
+      color: $themeGreen
+      &::after
+        background-color: $themeGreen
+  &__callback
+    text-align: center
+  .form
+    margin: 40px 0 20px
+    &__fields-wrapper
+      padding: 0 15px
+      display: flex
+      flex-flow: column
+      max-width: 360px
+      width: 100%
+    &__field
+      margin-bottom: 22px
+      padding: 0 12px
+      background-color: $lightGreen
+      +border-radius(20px)
+      border: none
+      &::placeholder
+        font-family: Nunito, sans-serif
+        font-size: 18px
+        line-height: 1.2
+        font-weight: 300
+        color: $green
+        opacity: 0.5
+    &__input
+      height: 40px
+    &__textarea
+      padding: 10px 12px
+      height: 100px
 
 .swiper
   &-pagination-bullet
-    background-color: $turquoiseLight
+    background-color: red
     &-active
       background-color: $darkGreen
 .swiper-button-next, .swiper-button-prev

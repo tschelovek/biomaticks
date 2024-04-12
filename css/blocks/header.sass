@@ -19,17 +19,21 @@
   &__btn__burger
     display: none
   &__link
-    padding: 4px 10px
+    padding: 3px 14px
     -webkit-transition: color 150ms ease
     transition: color 200ms ease-in-out
-    color: $turquoise
-    font-size: 18px
-    line-height: 1.1
-    font-weight: 700
+    color: $themeGreen
+    font-family: Comfortaa, sans-serif
+    font-weight: 400
+    font-size: 24px
+    line-height: 1
     letter-spacing: 0.25px
     text-decoration: none
-    text-transform: uppercase
+    height: 30px
+    +border-radius(15px)
     &_lang
       margin-right: 20px
     &:hover
-      color: $orange
+      background-color: rgba(58, 170, 53, 0.1)
+    &:active
+      background-color: rgba(58, 170, 53, 0.2)
