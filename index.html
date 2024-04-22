@@ -9,10 +9,20 @@
     <link rel="manifest" href="./site.webmanifest">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="theme-color" content="#ecf7eb">
-    <link rel="stylesheet" href="./css/style.min.css">
     <script src="js/libs/swiper-bundle.min.js"></script>
-    <script src="js/libs/parallax.min.js"></script>
-    <!--    <script defer src="./js/main.js"></script>-->
+    <link rel="stylesheet" href="./css/style.css">
+        <script defer src="./js/main.js"></script>
+    <style>
+        .hero {
+            background-image: url('./images/hero_bg.jpg');
+        }
+
+        @media (min-resolution: 2x) and (min-width: 1024px) {
+            .hero {
+                background-image: url('./images/hero_bg@x2.webp');
+            }
+        }
+    </style>
 </head>
 <body>
 <div class="container_body">
@@ -54,6 +64,7 @@
         </div>
         <div id="scroll-progress"></div>
     </header>
+
     <main>
         <section class="hero">
             <div class="container_560">
@@ -192,6 +203,19 @@
         <section class="solution" id="s_solution">
             <h2 class="title_h2">Есть решение!</h2>
 
+            <div class="container">
+                <div class="iframe__wrapper iframe__wrapper_hive">
+                    <iframe
+                            class="iframe_resp iframe_hive"
+                            src="./animations/hive/hive.html"
+                            seamless
+                            frameborder="0"
+                            allow="encrypted-media"
+                            loading="lazy"></iframe>
+                </div>
+            </div>
+
+
             <div class="factors">
                 <div class="container">
                     <h3 class="title_h3">Факторы, которые отслеживает<br>наша технология:</h3>
@@ -225,11 +249,68 @@
                 <div class="container">
                     <h3 class="title_h3">Система контроля опыления состоит из двух частей:</h3>
                     <div class="systema__list">
-                        <div class="systema__item">
+                        <div class="systema__item systema__item_hard">
+                            <div class="systema__item__intro">
+                                <div class="title_h4">Аппаратная часть</div>
+                                <img srcset="./images/system_0.webp"
+                                     src="./images/system_0.png" alt="Кибернетический улей"
+                                >
+                                <div class="systema__item__link">
+                                    <svg id="uuid-a811491e-9a98-424b-bb4e-4323ed583f4c" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.75 33.84">
+                                        <defs>
+                                            <style>
+                                                .uuid-c35a74c9-ed1b-40df-8b2d-5a74fe1e9fa9 {
+                                                    fill: none;
+                                                    stroke: #3aaa35;
+                                                    stroke-linecap: round;
+                                                    stroke-linejoin: round;
+                                                    stroke-width: 3px;
+                                                }
+                                            </style>
+                                        </defs>
+                                        <g id="uuid-b91fc324-2644-47ac-b37e-70b1783bbb09" data-name="Слой 2">
+                                            <line class="uuid-c35a74c9-ed1b-40df-8b2d-5a74fe1e9fa9" x1="1.5" y1="16.79" x2="49.07" y2="16.79"/>
+                                            <polyline class="uuid-c35a74c9-ed1b-40df-8b2d-5a74fe1e9fa9" points="34.83 1.5 50.25 16.92 34.83 32.34"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="systema__item__info">
+                                <div class="title_h4">Аппаратная часть</div>
+                                <div class="systema__item__info__text">
+                                    Состоит из композитного корпуса и небольшого компьютера. Он управляет
+                                    автоматическими летками, получает данные с датчиков температуры, управляет
+                                    естественной и принудительной вентиляцией, считает активность лета. Аппарат оснащен
+                                    УФ-маячком и отслеживает датчики ульев. Вмещает 3 улья, которые устанавливаются
+                                    через боковую дверцу. Благодаря продуманной схеме работы ваши сотрудники будут
+                                    защищены от ужалений.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="systema__item systema__item_soft">
                             <div class="systema__item__intro">
                                 <div class="title_h4">Программная часть</div>
-                                <img src="./images/system_1_sm.png" alt="">
-                                <a href="#" class="systema__item__link"></a>
+                                <img srcset="./images/system_1.webp"
+                                        src="./images/system_1_sm.png" alt="Программа в смартфоне">
+                                <div  class="systema__item__link">
+                                    <svg id="uuid-a811491e-9a98-424b-bb4e-4323ed583f4c" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.75 33.84">
+                                        <defs>
+                                            <style>
+                                                .uuid-c35a74c9-ed1b-40df-8b2d-5a74fe1e9fa9 {
+                                                    fill: none;
+                                                    stroke: #3aaa35;
+                                                    stroke-linecap: round;
+                                                    stroke-linejoin: round;
+                                                    stroke-width: 3px;
+                                                }
+                                            </style>
+                                        </defs>
+                                        <g id="uuid-b91fc324-2644-47ac-b37e-70b1783bbb09" data-name="Слой 2">
+                                            <line class="uuid-c35a74c9-ed1b-40df-8b2d-5a74fe1e9fa9" x1="1.5" y1="16.79" x2="49.07" y2="16.79"/>
+                                            <polyline class="uuid-c35a74c9-ed1b-40df-8b2d-5a74fe1e9fa9" points="34.83 1.5 50.25 16.92 34.83 32.34"/>
+                                        </g>
+                                    </svg>
+                                </div>
                             </div>
                             <div class="systema__item__info">
                                 <div class="title_h4">Программная часть</div>

@@ -146,22 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 delay: 3000,
             },
             speed: 1000,
-            // breakpoints: {
-            //   640: {
-            //     autoplay: false,
-            //     grid: {
-            //       rows: 4
-            //     },
-            //     allowTouchMove: false,
-            //   },
-            // }
         })
-
-
-    /**
-     * Parallax
-     */
-    // const parallaxInstance1 = new Parallax(document.getElementById('scene'));
 
     /**
      * Scroll progress-bar
@@ -174,20 +159,48 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollProgress.style.width = `${(scrollTop / height) * 100}%`;
     });
 
-    const keyframesFlipVertical = [
-        {transform: 'rotateY()', easing: 'cubic-bezier(0.455, 0.030, 0.515, 0.955)'},
-        {transform: 'rotateY(180deg)', easing: 'cubic-bezier(0.455, 0.030, 0.515, 0.955)'},
-    ]
+    /**
+     *
+     * Анимация переворота карточек .systema__item
+     */
 
-    // document.querySelectorAll('.systema__item')
-    //     .forEach(item => item
-    //         .addEventListener('click', () => {
-    //             item.classList.remove('flip-vertical-left');
-    //             item.classList.add('flip-vertical-left');
-    //             // item.classList.toggle('flip-vertical-left')
-    //             // item.animate(keyframesFlipVertical, {duration: 400, fill: "both", direction: 'normal'})
-    //
-    //         })
-    //     )
+    const animFlipParams = {
+        options: { duration: 400, fill: "both", direction: 'normal' },
+        keyframesIn: [
+            {transform: 'rotateY()', easing: 'cubic-bezier(0.455, 0.030, 0.515, 0.955)'},
+            {transform: 'rotateY(180deg)', easing: 'cubic-bezier(0.455, 0.030, 0.515, 0.955)'},
+        ],
+        keyframesOut: [
+            {transform: 'rotateY(180deg)', easing: 'cubic-bezier(0.455, 0.030, 0.515, 0.955)'},
+            {transform: 'rotateY(360deg)', easing: 'cubic-bezier(0.455, 0.030, 0.515, 0.955)'},
+        ]
+    }
+
+    document.querySelectorAll('.systema__item')
+        .forEach(item => item
+            .addEventListener('click', () => {
+                item.classList.toggle('active');
+                item.classList.contains('active')
+                    ? item.animate([...animFlipParams.keyframesIn], {...animFlipParams.options})
+                    : item.animate([...animFlipParams.keyframesOut], {...animFlipParams.options})
+            })
+        )
+
+    /**
+     *
+     */
+    const FULL_IFRAME_WIDTH_HIVE = 1620;
+    const hive = document.querySelector('.iframe__wrapper_hive');
+
+    function fitIframeToWindow() {
+        const iframeHive = document.querySelector('iframe.iframe_hive');
+
+        const hiveWidth = hive.getBoundingClientRect().width;
+        const ratio = hiveWidth / FULL_IFRAME_WIDTH_HIVE;
+
+        iframeHive.style.transform = `scale(${ratio})`;
+    }
+
+    new ResizeObserver(() => fitIframeToWindow()).observe(hive)
 
 })

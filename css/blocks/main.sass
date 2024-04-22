@@ -32,6 +32,7 @@
   padding: 36px 0
   background-color: #ECF7EB
   &__item
+    margin: 0 auto
     display: flex
     max-width: 900px
     background-color: white
@@ -43,14 +44,16 @@
 .problem, .solution
   padding: 50px 0
 
-.factors
-  padding: 32px 0
+.solution
   .title_h3
     margin: 0 auto 24px
-    font-size: 44px
     font-weight: 400
-    line-height: 1.2
     text-align: center
+    font-size: 44px
+    line-height: 1.2
+
+.factors
+  padding: 32px 0
   &__list
     margin-top: 40px
     display: flex
@@ -78,33 +81,80 @@
         height: 80%
 
 .systema
+  &__list
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(236px, 560px))
+    justify-content: center
+    gap: 1rem
   &__item
-    width: 50%
-    aspect-ratio: 1
-    -webkit-border-radius: 16px
-    -moz-border-radius: 16px
-    border-radius: 16px
-    background-color: #ECF7EB
+    //width: 50%
+    //aspect-ratio: 1
+    //-webkit-border-radius: 24px
+    //-moz-border-radius: 24px
+    //border-radius: 24px
+    //background-color: #ECF7EB
     transform: translate3d(0, 0, 0)
     transform-style: preserve-3d
-    z-index: 900
+    z-index: 90
     &__intro
+      padding: 24px 68px 42px
       position: absolute
       width: 100%
       height: 100%
       -webkit-backface-visibility: hidden
       backface-visibility: hidden
       background-color: #ECF7EB
+      -webkit-border-radius: 24px
+      -moz-border-radius: 24px
+      border-radius: 24px
+      overflow: hidden
       z-index: 20
     &__info
-      position: absolute
+      padding: 24px 68px 42px
+      //position: absolute
       width: 100%
       height: 100%
       -webkit-backface-visibility: hidden
       backface-visibility: hidden
       background-color: #ECF7EB
+      -webkit-border-radius: 24px
+      -moz-border-radius: 24px
+      border-radius: 24px
       z-index: 10
-
+      transform: rotateY(180deg)
+      &__text
+        margin-top: 30px
+        font-weight: 300
+        font-size: 22px
+    &__link
+      position: absolute
+      bottom: 42px
+      right: 64px
+      width: 48px
+      height: 30px
+      transition: translate 0.2s
+    .title_h4
+      margin-left: auto
+      max-width: 290px
+      text-align: right
+      font-family: Comfortaa, sans-serif
+      font-size: 36px
+      color: $green
+    &_hard
+      img
+        position: absolute
+        top: 0
+        left: -5%
+        height: 120%
+    &_soft
+      img
+        position: absolute
+        bottom: 0
+        left: 0
+        height: 90%
+    &:hover
+      .systema__item__link
+        translate: 16px
 
 .abilities
   &__list
@@ -265,3 +315,55 @@
       background-color: $darkGreen
 .swiper-button-next, .swiper-button-prev
   color: $darkGreen
+
+.iframe
+  &__wrapper
+    padding: 0
+    overflow: hidden
+    &_hive
+      width: auto
+      aspect-ratio: 1620/800
+      .iframe_hive
+        width: 1620px
+        height: 800px
+        border: 0
+        -ms-transform: scale(0.85)
+        -moz-transform: scale(0.85)
+        -o-transform: scale(0.85)
+        -webkit-transform: scale(0.85)
+        transform: scale(0.85)
+
+    &_2hard
+      width: 578px
+      height: 555px
+      .iframe_2hard
+        width: 1156px
+        height: 1138px
+        border: 0
+        -ms-transform: scale(0.5)
+        -moz-transform: scale(0.5)
+        -o-transform: scale(0.5)
+        -webkit-transform: scale(0.5)
+        transform: scale(0.5)
+
+    &_rocketscience
+      width: 553px
+      height: 595px
+      .iframe_rocketscience
+        width: 1105px
+        height: 1190px
+        border: 0
+        -ms-transform: scale(0.5)
+        -moz-transform: scale(0.5)
+        -o-transform: scale(0.5)
+        -webkit-transform: scale(0.5)
+        transform: scale(0.5)
+
+  &_resp
+    -ms-transform-origin: 0 0
+    -moz-transform-origin: 0 0
+    -o-transform-origin: 0 0
+    -webkit-transform-origin: 0 0
+    transform-origin: 0 0
+
+
