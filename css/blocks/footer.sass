@@ -14,11 +14,26 @@
 
   .nav
     //flex: 2
+    position: relative
     &__list
       display: block
       //grid-template-columns: repeat(auto-fit, minmax(180px, auto))
       justify-content: center
     &__link
+      padding-left: 10px
       color: $themeGreen
+      border-top-left-radius: unset
+      border-bottom-left-radius: unset
       &:hover
         //color: red
+    &::before
+      content: ''
+      display: block
+      position: absolute
+      top: 6px
+      left: -12px
+      width: 2px
+      height: calc(100% - 12px)
+      +border-radius(1px)
+      background-color: $green
+

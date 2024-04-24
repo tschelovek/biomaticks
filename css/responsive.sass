@@ -1,5 +1,340 @@
+@media only screen and (max-width: 1190px)
+  .factors__item p
+    font-size: 18px
+
+  .about__tabs-wrapper
+    gap: 64px
 @media only screen and (max-width: 1024px)
+  .header
+    &__wrapper
+      //margin: 0 -16px
+    &__link
+      font-size: 20px
+  .nav__list
+    gap: 0
+
+  .abilities
+    &__item
+      padding: 20px 48px 20px 0
+      gap: 24px
+      font-size: 18px
+      &:nth-child(odd)
+        padding: 20px 16px 20px 36px
+        border-top-left-radius: unset
+        border-bottom-left-radius: unset
+      &:nth-child(even)
+        border-top-right-radius: unset
+        border-bottom-right-radius: unset
+    .container
+      padding: 0
+
+  .about
+    &__content__occupation
+      font-size: 18px
+    &__tab
+      img
+        width: 180px
+        height: 180px
+
+@media only screen and (max-width: 960px)
+  .factors__item
+    padding: 4px 16px 16px 16px
+    p
+      font-size: 14px
+
+  .about
+    &__tab
+      &-list
+        flex-flow: row
+        justify-content: space-around
+      span
+        margin-bottom: 0
+    &__tabs-wrapper
+      margin-top: 40px
+      flex-flow: column
+      gap: 0
+    &__content
+      &__tab > p
+        margin-bottom: 1em
+
+
+@media only screen and (max-width: 896px)
+  .header
+    &__right-block
+      padding: 16px 24px 32px 24px
+      position: absolute
+      justify-content: flex-start
+      background-color: $themeGreen
+      color: white
+      top: 0
+      left: 0
+      width: 100%
+      border-bottom-left-radius: 24px
+      border-bottom-right-radius: 24px
+      transition: translate 0.3s ease-in-out
+      translate: 0 -100%
+      &.active
+        translate: 0 60px
+
+    &__link
+      color: white
+    &__btn__burger
+      display: block
+    .nav__list
+      flex-flow: column
+      gap: 8px
+
+  .benefits__item
+    &__text-block p
+      font-size: 20px
+    .title_h3
+      font-size: 32px
+    img
+      max-width: 50%
+
+  .abilities
+    &__item
+      flex-flow: column
+      &:nth-child(even)
+        padding: 20px 36px
+      img
+        max-width: 60%
+
 @media only screen and (max-width: 768px)
+  .title_h2
+    font-size: 52px
+
+  .hero
+    padding: 180px 40px
+
+  .benefits__item
+    &__text-block p
+      font-size: 18px
+    .title_h3
+      font-size: 28px
+
+  .problem
+    &__item
+      &_1
+        flex-flow: column
+      &_2
+        flex-flow: column-reverse
+      .half__block
+        width: 100%
+      .iframe__wrapper
+        margin: 0 auto
+        width: 80%
+      &__text
+        font-size: 20px
+        & > p
+          margin-bottom: 12px
+    &__fact
+      margin: 24px auto 0
+
+  .solution .title_h3
+    font-size: 36px
+
+  .factors
+    &__list
+      flex-flow: wrap
+      justify-content: center
+    &__item
+      width: 160px
+      flex: unset
+
+  .about
+    &__tab span
+      font-size: 30px
+    &__content
+      &__title
+        font-size: 30px
+
+  .footer
+    .container
+      flex-flow: wrap
+    &__copyright
+      order: 3
+      width: 100%
+
 @media only screen and (max-width: 640px)
+  .container
+    padding: 0 32px
+
+  .title_h2
+    font-size: 40px
+
+  .hero
+    padding: 80px 40px
+    min-height: unset
+    .title_h1
+      font-size: 64px
+      text-align: left
+      &_small
+        font-size: 24px
+
+
+  .benefits
+    &__item
+      padding: 16px 24px
+      flex-flow: column
+      img
+        margin: 0 auto
+        max-width: 80%
+        width: 300px
+    .title_h3
+      text-align: center
+    .swiper
+      &-pagination
+        text-align: center
+        &-bullet
+          width: 48px
+      &-button
+        &-prev, &-next
+          display: none
+
+
+  .problem
+    &__item__text
+      font-size: 18px
+    &__fact
+      display: block
+      background-color: #ECF7EB
+      +border-radius(24px)
+      &__header
+        justify-content: center
+      &__body
+        padding: 0 16px 16px
+        position: static
+      &.hide
+        .problem__fact__body
+          opacity: 1
+      .btn_fact
+        display: none
+
+  .solution .title_h3
+    font-size: 24px
+    max-width: 80%
+  .systema__item
+    &__intro
+      padding: 20px 32px
+    &__info
+      padding: 20px 32px 32px
+      &__text
+        font-size: 20px
+    .title_h4
+      font-size: 32px
+
+  .abilities__item
+    &:nth-child(odd)
+      padding-top: 0
+    &:nth-child(even)
+      padding: 0 36px 20px 24px
+
+  .about__content
+    &__header
+      flex-flow: column
+    &__title
+      text-align: center
+
+  .contacts__content
+    flex-flow: wrap
+
+@media only screen and (max-width: 576px)
+  .systema__item
+    &__info
+      //padding: 20px
+      &__text
+        font-size: 18px
+    .title_h4
+      font-size: 28px
+
+  .about__content__tab
+    padding: 28px 24px 12px
+
 @media only screen and (max-width: 480px)
+  .container
+    padding: 0 16px
+
+  .title_h2
+    font-size: 32px
+
+  .hero
+    padding: 36px 16px 48px
+    .title_h1
+      font-size: 48px
+      &_small
+        font-size: 20px
+
+
+  .benefits__item
+    &__text-block p
+      font-size: 16px
+    .title_h3
+      font-size: 24px
+    img
+      max-width: 100%
+
+  .systema__item
+    &__intro
+      padding: 20px 20px 28px
+    &__info
+      padding: 20px 20px 28px
+      &__text
+        font-size: 16px
+    .title_h4
+      font-size: 24px
+
+  .abilities__item
+    font-size: 16px
+    &:nth-child(odd), &:nth-child(even)
+      padding: 0 24px 20px
+    img
+      max-width: 80%
+
+  .factors__list
+    gap: 10px
+
+  .about__tab img
+    width: 120px
+    height: 120px
+
+  .footer .container
+    flex-flow: column
+    align-items: center
+
 @media only screen and (max-width: 360px)
+  .container
+    padding: 0 8px
+
+  .title_h2
+    font-size: 24px
+
+  .hero
+    padding: 36px 0px 48px
+    .title_h1
+      font-size: 45px
+
+  .benefits
+    .swiper-pagination
+      display: flex
+      justify-content: space-between
+      &-bullet
+        width: 16px
+        height: 16px
+        +border-radius(50%)
+
+  .solution .title_h3
+    font-size: 20px
+    max-width: unset
+
+  .systema__item
+    &__intro
+      padding: 20px
+    &__info
+      &__text
+        font-size: 14px
+
+  .abilities__item
+    font-size: 14px
+    &:nth-child(odd), &:nth-child(even)
+      padding: 0 12px 20px

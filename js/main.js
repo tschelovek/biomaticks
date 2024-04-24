@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('burgerButton')?.addEventListener('click', e => {
         e.preventDefault();
         e.currentTarget.classList.toggle('active');
-        document.querySelector('.nav_header')?.classList.toggle('active');
+        document.querySelector('.header__right-block')?.classList.toggle('active');
     })
 
     document.querySelectorAll('.nav_header .header__link')
@@ -136,28 +136,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const swiper2 = new Swiper('#slider_benefits', {
             pagination: {
                 el: '.swiper-pagination',
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                clickable: true
             },
             loop: true,
-            autoplay: {
-                delay: 3000,
-            },
+            spaceBetween: 20,
+            // autoplay: {
+            //     delay: 3000,
+            // },
             speed: 1000,
+            breakpoints: {
+                480: {
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                },
+            }
         })
 
-    /**
-     * Scroll progress-bar
-     */
-    const scrollProgress = document.getElementById('scroll-progress');
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
-    window.addEventListener('scroll', () => {
-        const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-        scrollProgress.style.width = `${(scrollTop / height) * 100}%`;
-    });
 
     /**
      *
@@ -187,20 +183,38 @@ document.addEventListener('DOMContentLoaded', () => {
         )
 
     /**
-     *
+     * Масштабирование айфреймов по ширине обёртки
      */
+
+    const FULL_IFRAME_WIDTH_RSCIENCE = 1105;
+    const FULL_IFRAME_WIDTH_2HARD = 1156;
     const FULL_IFRAME_WIDTH_HIVE = 1620;
+    const rocketScience = document.querySelector('.iframe__wrapper_rocketscience');
+    const tooHard = document.querySelector('.iframe__wrapper_2hard');
     const hive = document.querySelector('.iframe__wrapper_hive');
 
-    function fitIframeToWindow() {
-        const iframeHive = document.querySelector('iframe.iframe_hive');
+    new ResizeObserver(() => fitIframeToWindow(rocketScience, FULL_IFRAME_WIDTH_RSCIENCE)).observe(rocketScience);
+    new ResizeObserver(() => fitIframeToWindow(tooHard, FULL_IFRAME_WIDTH_2HARD)).observe(tooHard);
+    new ResizeObserver(() => fitIframeToWindow(hive, FULL_IFRAME_WIDTH_HIVE)).observe(hive);
 
-        const hiveWidth = hive.getBoundingClientRect().width;
-        const ratio = hiveWidth / FULL_IFRAME_WIDTH_HIVE;
+    function fitIframeToWindow(iframeWrapper, fullIframeWidth = 100) {
+        const iframe = iframeWrapper.querySelector('iframe');
+        if (!iframe) {
+            return
+        }
 
-        iframeHive.style.transform = `scale(${ratio})`;
+        const wrapperWidth = iframeWrapper.getBoundingClientRect().width;
+        const ratio = wrapperWidth / fullIframeWidth;
+
+        iframe.style.transform = `scale(${ratio})`;
     }
 
-    new ResizeObserver(() => fitIframeToWindow()).observe(hive)
+    /**
+     * Открытие карточки .problem__fact
+     */
 
+    document.querySelectorAll('.problem__fact .btn_fact')
+        .forEach(btn => btn.addEventListener('click', () => {
+            btn.closest('.problem__fact').classList.toggle('hide')
+        }));
 })
