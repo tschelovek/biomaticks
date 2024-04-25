@@ -13,28 +13,35 @@
   .nav__list
     gap: 0
 
-  .abilities
-    &__item
-      padding: 20px 48px 20px 0
-      gap: 24px
-      font-size: 18px
-      &:nth-child(odd)
-        padding: 20px 16px 20px 36px
-        border-top-left-radius: unset
-        border-bottom-left-radius: unset
-      &:nth-child(even)
-        border-top-right-radius: unset
-        border-bottom-right-radius: unset
-    .container
-      padding: 0
+  .solution
+    &__screen
+      &__text
+        &_1, &_2
+          font-size: 20px
 
-  .about
-    &__content__occupation
-      font-size: 18px
-    &__tab
-      img
-        width: 180px
-        height: 180px
+
+    .abilities
+      &__item
+        padding: 20px 48px 20px 0
+        gap: 24px
+        font-size: 18px
+        &:nth-child(odd)
+          padding: 20px 16px 20px 36px
+          border-top-left-radius: unset
+          border-bottom-left-radius: unset
+        &:nth-child(even)
+          border-top-right-radius: unset
+          border-bottom-right-radius: unset
+      .container
+        padding: 0
+
+    .about
+      &__content__occupation
+        font-size: 18px
+      &__tab
+        img
+          width: 180px
+          height: 180px
 
 @media only screen and (max-width: 960px)
   .factors__item
@@ -131,8 +138,15 @@
     &__fact
       margin: 24px auto 0
 
-  .solution .title_h3
-    font-size: 36px
+  .solution
+    .title_h3
+      font-size: 36px
+    &__screen__text
+      &-wrapper
+        padding: 32px 0 24px
+      &_1, &_2
+        font-size: 18px
+
 
   .factors
     &__list
@@ -211,9 +225,13 @@
       .btn_fact
         display: none
 
-  .solution .title_h3
-    font-size: 24px
-    max-width: 80%
+  .solution
+    .title_h3
+      font-size: 24px
+      max-width: 80%
+    .iframe__wrapper_hive
+      margin: 0 -40px
+
   .systema__item
     &__intro
       padding: 20px 32px
@@ -251,6 +269,14 @@
   .about__content__tab
     padding: 28px 24px 12px
 
+  .solution
+    &__screen
+      &__text
+        &_1, &_2
+          font-size: 16px
+    .iframe__wrapper_hive
+      margin: 0 -64px
+
 @media only screen and (max-width: 480px)
   .container
     padding: 0 16px
@@ -274,6 +300,27 @@
     img
       max-width: 100%
 
+
+  .problem__item__text
+    font-size: 16px
+
+  .solution
+    &__screen__text
+      &-wrapper
+        padding: 20px 0 10px
+      &_1, &_2
+        max-width: 250px
+    .abilities
+      &__list
+        gap: 10px
+      &__item
+        font-size: 16px
+        &:nth-child(odd), &:nth-child(even)
+          padding: 0 24px 20px
+        img
+          max-width: 80%
+
+
   .systema__item
     &__intro
       padding: 20px 20px 28px
@@ -284,19 +331,16 @@
     .title_h4
       font-size: 24px
 
-  .abilities__item
-    font-size: 16px
-    &:nth-child(odd), &:nth-child(even)
-      padding: 0 24px 20px
-    img
-      max-width: 80%
 
   .factors__list
     gap: 10px
 
-  .about__tab img
-    width: 120px
-    height: 120px
+  .about
+    &__content__occupation
+      font-size: 16px
+    &__tab img
+      width: 120px
+      height: 120px
 
   .footer .container
     flex-flow: column
