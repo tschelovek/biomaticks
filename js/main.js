@@ -19,27 +19,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // document.querySelectorAll('.callback_init')
     //   .forEach(button => button.addEventListener('click', e => handlerOpenCallback(e.currentTarget)));
 
-    // document.form_callback.addEventListener('submit', async e => {
-    //   e.preventDefault();
-    //
-    //   const messageContainer = modal.querySelector('.modal__status');
-    //
-    //   try {
-    //     const myMessage = getStringFromInputs();
-    //
-    //     await postData(POST_FORM_URL, {message: myMessage})
-    //       .then((res) => {
-    //         if (res.ok) {
-    //           messageContainer.textContent = SUCCESS_MESSAGE;
-    //         } else {
-    //           messageContainer.textContent = ERROR_MESSAGE;
-    //         }
-    //       })
-    //   } catch (err) {
-    //       messageContainer.textContent = ERROR_MESSAGE;
-    //     console.error(err);
-    //   }
-    // })
+    document.form_callback.addEventListener('submit', async e => {
+        e.preventDefault();
+
+        const form = e.target;
+        const messageContainer = form.querySelector('.callback__status');
+
+        messageContainer.textContent = '';
+        messageContainer.style.color = 'inherit'
+
+        try {
+            const myMessage = getStringFromInputs();
+
+            await postData(POST_FORM_URL, {message: myMessage})
+                .then((res) => {
+                    if (res.ok) {
+                        messageContainer.textContent = SUCCESS_MESSAGE;
+                        // очистка формы в случае успеха
+                        form.reset();
+                    } else {
+                        messageContainer.textContent = ERROR_MESSAGE;
+                        messageContainer.style.color = 'red'
+                    }
+                })
+        } catch (err) {
+            messageContainer.textContent = ERROR_MESSAGE;
+            messageContainer.style.color = 'red'
+            console.error(err);
+        }
+    })
 
     function handlerOpenCallback(eTarget) {
         modal.style.display = 'block';
@@ -109,50 +117,26 @@ document.addEventListener('DOMContentLoaded', () => {
      *
      * @type {Swiper} Инициализация слайдера
      */
-        // const swiper = new Swiper('#slider_advantages', {
-        //   pagination: {
-        //     el: '.swiper-pagination',
-        //   },
-        //   // navigation: {
-        //   //     nextEl: '.swiper-button-next',
-        //   //     prevEl: '.swiper-button-prev',
-        //   // },
-        //   loop: true,
-        //   autoplay: {
-        //     delay: 3000,
-        //   },
-        //   speed: 1000,
-        //   breakpoints: {
-        //     640: {
-        //       autoplay: false,
-        //       grid: {
-        //         rows: 4
-        //       },
-        //       allowTouchMove: false,
-        //     },
-        //   }
-        // })
-
     const swiper2 = new Swiper('#slider_benefits', {
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true
-            },
-            loop: true,
-            spaceBetween: 20,
-            // autoplay: {
-            //     delay: 3000,
-            // },
-            speed: 1000,
-            breakpoints: {
-                480: {
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        },
+        loop: true,
+        spaceBetween: 20,
+        autoplay: {
+            delay: 2000,
+        },
+        speed: 1000,
+        breakpoints: {
+            480: {
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
                 },
-            }
-        })
+            },
+        }
+    })
 
 
     /**
@@ -161,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
 
     const animFlipParams = {
-        options: { duration: 400, fill: "both", direction: 'normal' },
+        options: {duration: 400, fill: "both", direction: 'normal'},
         keyframesIn: [
             {transform: 'rotateY()', easing: 'cubic-bezier(0.455, 0.030, 0.515, 0.955)'},
             {transform: 'rotateY(180deg)', easing: 'cubic-bezier(0.455, 0.030, 0.515, 0.955)'},
