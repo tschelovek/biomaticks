@@ -367,7 +367,7 @@
 </head>
 
 <body>
-  <gwd-genericad id="gwd-ad">
+  <gwd-genericad id="gwd-ad" loop='true'>
     <gwd-pagedeck class="gwd-page-container" id="pagedeck">
       <gwd-page id="page1" class="gwd-page-wrapper gwd-page-size gwd-lightbox gwd-page-1ea2" data-gwd-width="1620px" data-gwd-height="800px" data-gwd-animation-labels="label-1,0">
         <div class="gwd-page-content gwd-page-size gwd-div-507i">
@@ -2677,7 +2677,7 @@
             </g>
           </svg>
           <div class="gwd-animation-event event-1-animation" data-event-name="event-1" data-event-time="6300"></div>
-          <gwd-image id="hive-09" source="assets/hive-09.svg" scaling="stretch" class="gwd-image-zjlb" data-gwd-tl-locked=""></gwd-image>
+<!--          <gwd-image id="hive-09" source="assets/hive-09.svg" scaling="stretch" class="gwd-image-zjlb" data-gwd-tl-locked=""></gwd-image>-->
         </div>
       </gwd-page>
     </gwd-pagedeck>
@@ -2685,6 +2685,8 @@
   <script type="text/javascript" id="gwd-init-code">
     (function() {
       var gwdAd = document.getElementById('gwd-ad');
+
+      gwdAd.loop = true
 
       /**
        * Handles the DOMContentLoaded event. The DOMContentLoaded event is
@@ -2704,7 +2706,15 @@
           setTimeout(function() {
             gwdAd.initAd();
           }, 1);
+          // setInterval(function() {
+          //   gwdAd.initAd();
+          // }, 3000);
         });
+
+        // setInterval(function () {
+        //   console.log('test')
+        //
+        // }, 3000)
       }
 
       /**
