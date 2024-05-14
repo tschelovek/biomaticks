@@ -9,9 +9,10 @@
     <link rel="manifest" href="./site.webmanifest">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="theme-color" content="#ecf7eb">
-    <script src="js/libs/swiper-bundle.min.js"></script>
+    <script src="js/libs/swiper-bundle_6.min.js"></script>
+    <link rel="stylesheet" href="./css/libs/swiper-bundle_6.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <script defer src="./js/main.js"></script>
+    <script type="module" defer src="./js/main.js"></script>
     <style>
         .hero {
             background-image: url('./images/hero_bg.jpg');
@@ -87,7 +88,7 @@
 
         <div class="benefits">
             <div class="container">
-                <div class="swiper benefits__swiper" id="slider_benefits">
+                <div class="swiper swiper-container benefits__swiper" id="slider_benefits">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="benefits__item">
@@ -138,10 +139,8 @@
                     </div>
                     <div class="swiper-pagination"></div>
 
-                    <div class="swiper-button-prev">
-                    </div>
-                    <div class="swiper-button-next">
-                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
             </div>
         </div>
@@ -152,14 +151,16 @@
                 <div class="problem__item problem__item_1 half__wrapper">
                     <div class="half__block">
                         <div class="iframe__wrapper iframe__wrapper_rocketscience">
-                            <iframe
-                                    class="iframe_resp iframe_rocketscience"
-                                    src="./animations/rocketscience/index.html"
-                                    seamless
-                                    frameborder="0"
-                                    allow="encrypted-media"
-                                    loading="lazy"></iframe>
+<!--                            <iframe-->
+<!--                                    class="iframe_resp iframe_rocketscience"-->
+<!--                                    src="./animations/rocketscience/index.html"-->
+<!--                                    seamless-->
+<!--                                    frameborder="0"-->
+<!--                                    allow="encrypted-media"-->
+<!--                                    loading="lazy"></iframe>-->
+                            <img src="./images/rocketscience.jpg" alt="">
                         </div>
+
                     </div>
                     <div class="half__block">
                         <div class="problem__item__text">
@@ -252,13 +253,14 @@
                     </div>
                     <div class="half__block">
                         <div class="iframe__wrapper iframe__wrapper_2hard">
-                            <iframe
-                                    class="iframe_resp iframe_2hard"
-                                    src="./animations/2hard/index.html"
-                                    seamless
-                                    frameborder="0"
-                                    allow="encrypted-media"
-                                    loading="lazy"></iframe>
+<!--                            <iframe-->
+<!--                                    class="iframe_resp iframe_2hard"-->
+<!--                                    src="./animations/2hard/index.html"-->
+<!--                                    seamless-->
+<!--                                    frameborder="0"-->
+<!--                                    allow="encrypted-media"-->
+<!--                                    loading="lazy"></iframe>-->
+                            <img src="./images/toohard.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -270,15 +272,15 @@
 
             <div class="solution__screen">
                 <div class="container_1370">
-                    <div class="iframe__wrapper iframe__wrapper_hive">
-                        <iframe
-                                class="iframe_resp iframe_hive"
-                                src="./animations/hive/hive.html"
-                                seamless
-                                frameborder="0"
-                                allow="encrypted-media"
-                                loading="lazy"></iframe>
-                    </div>
+<!--                    <div class="iframe__wrapper iframe__wrapper_hive">-->
+<!--                        <iframe-->
+<!--                                class="iframe_resp iframe_hive"-->
+<!--                                src="./animations/hive/hive.html"-->
+<!--                                seamless-->
+<!--                                frameborder="0"-->
+<!--                                allow="encrypted-media"-->
+<!--                                loading="lazy"></iframe>-->
+<!--                    </div>-->
                 </div>
                 <div class="solution__screen__text-wrapper">
                     <div class="solution__screen__text_1">Качественное опыление — залог высокой урожайности.</div>
@@ -551,11 +553,12 @@
                 <h2 class="title_h2">Контакты</h2>
                 <div class="contacts__content">
                     <div class="contacts__block_1">
-                        <div class="contacts__block_1__item">
-                            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A96844ee20af7780bd080c8fd8414d757fed3094f93155e88c556bcb452205f2c&amp;width=530&amp;height=240&amp;lang=ru_RU&amp;scroll=true"></script>                        </div>
-                        <div class="contacts__block_1__item">
-                            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A321decf48e1f55fc380dd881573eed8cf927d2d702700ec1f06e1ec1b37ac5d6&amp;width=530&amp;height=240&amp;lang=ru_RU&amp;scroll=true"></script>
-                        </div>
+<!--                        <div class="contacts__block_1__item">-->
+<!--                            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A96844ee20af7780bd080c8fd8414d757fed3094f93155e88c556bcb452205f2c&amp;width=530&amp;height=240&amp;lang=ru_RU&amp;scroll=false"></script>                        </div>-->
+<!--                        <div class="contacts__block_1__item">-->
+<!--&lt;!&ndash;                            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A321decf48e1f55fc380dd881573eed8cf927d2d702700ec1f06e1ec1b37ac5d6&amp;width=530&amp;height=240&amp;lang=ru_RU&amp;scroll=true"></script>&ndash;&gt;-->
+<!--                            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A321decf48e1f55fc380dd881573eed8cf927d2d702700ec1f06e1ec1b37ac5d6&amp;width=530&amp;height=240&amp;lang=ru_RU&amp;scroll=false"></script>-->
+<!--                        </div>-->
                     </div>
                     <div class="contacts__block_2">
                         <ul class="contacts__list">
