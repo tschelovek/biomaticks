@@ -4,6 +4,7 @@
 
   .about__tabs-wrapper
     gap: 64px
+
 @media only screen and (max-width: 1024px)
   .header
     &__wrapper
@@ -78,10 +79,21 @@
       width: 100%
       border-bottom-left-radius: 24px
       border-bottom-right-radius: 24px
-      transition: translate 0.3s ease-in-out
-      translate: 0 -100%
+      -webkit-transition: transform 0.3s ease-in-out
+      -moz-transition: transform 0.3s ease-in-out
+      -ms-transition: transform 0.3s ease-in-out
+      -o-transition: transform 0.3s ease-in-out
+      -webkit-transform: translate(0, -100%)
+      -moz-transform: translate(0, -100%)
+      -ms-transform: translate(0, -100%)
+      -o-transform: translate(0, -100%)
+      transform: translate(0, -100%)
       &.active
-        translate: 0 60px
+        -webkit-transform: translate(0, 60px)
+        -moz-transform: translate(0, 60px)
+        -ms-transform: translate(0, 60px)
+        -o-transform: translate(0, 60px)
+        transform: translate(0, 60px)
 
     &__link
       color: white
@@ -90,6 +102,15 @@
     .nav__list
       flex-flow: column
       gap: 8px
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      background-color: white
+      z-index: 20
 
   .benefits__item
     &__text-block p
@@ -147,7 +168,6 @@
       &_1, &_2
         font-size: 18px
 
-
   .factors
     &__list
       flex-flow: wrap
@@ -185,7 +205,6 @@
       text-align: left
       &_small
         font-size: 24px
-
 
   .benefits
     &__item
@@ -240,7 +259,7 @@
       &__text
         font-size: 20px
     .title_h4
-      font-size: 32px
+      font-size: 30px
 
   .abilities__item
     &:nth-child(odd)
@@ -254,8 +273,6 @@
     &__title
       text-align: center
 
-  .contacts__content
-    flex-flow: wrap
 
 @media only screen and (max-width: 576px)
   .systema__item
@@ -264,7 +281,7 @@
       &__text
         font-size: 18px
     .title_h4
-      font-size: 28px
+      font-size: 22px
 
   .about__content__tab
     padding: 28px 24px 12px
@@ -329,8 +346,7 @@
       &__text
         font-size: 16px
     .title_h4
-      font-size: 24px
-
+      font-size: 18px
 
   .factors__list
     gap: 10px

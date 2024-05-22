@@ -9,24 +9,25 @@
     <link rel="manifest" href="./site.webmanifest">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="theme-color" content="#ecf7eb">
-    <script src="js/libs/swiper-bundle_6.min.js"></script>
+    <meta name="format-detection" content="telephone=no" />
     <link rel="stylesheet" href="./css/libs/swiper-bundle_6.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <script type="module" defer src="./js/main.js"></script>
+    <script src="js/libs/swiper-bundle_6.min.js"></script>
+    <script defer src="./js/main.js"></script>
     <style>
         .hero {
-            background-image: url('./images/hero_bg.jpg');
+            background-image: url('./images/hero_bg_new1.jpg');
+            background-blend-mode: soft-light;
         }
 
         @media (min-resolution: 2x) and (min-width: 1024px), (min-width: 1650px) {
             .hero {
-                background-image: url('./images/hero_bg@x2.webp');
+                background-image: url('./images/hero_bg_full_narrow.webp');
             }
         }
         @media (max-width: 640px) {
             .hero {
-                background-image: url('./images/bg_mobile.JPG');
-                background-blend-mode: soft-light;
+                background-image: url('./images/bg_mobile.jpeg');
             }
         }
     </style>
@@ -67,6 +68,34 @@
                 <button type="button" id="burgerButton" class="btn_burger header__btn__burger">
                     <span>menu</span>
                 </button>
+                <script>
+                    const navMenu = document.querySelector('.header__right-block');
+                    const menuBtn = document.getElementById('burgerButton')
+
+                    menuBtn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        menuBtn.classList.toggle('active');
+                        navMenu.classList.toggle('active');
+
+                        if (navMenu.classList.contains('active')) {
+                            setTimeout(() => document.addEventListener('click', outClickHandler), 10)
+                        } else {
+                            document.removeEventListener('click', outClickHandler)
+                        }
+                    })
+
+                    navMenu.querySelectorAll('.header__link').forEach(link => link.addEventListener('click', () => closeMenu()));
+
+                    function outClickHandler(e) {
+                        if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                            closeMenu()
+                        }
+                    }
+                    function closeMenu() {
+                        menuBtn.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+                </script>
             </div>
         </div>
     </header>
@@ -139,8 +168,10 @@
                     </div>
                     <div class="swiper-pagination"></div>
 
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev">
+                    </div>
+                    <div class="swiper-button-next">
+                    </div>
                 </div>
             </div>
         </div>
@@ -151,16 +182,15 @@
                 <div class="problem__item problem__item_1 half__wrapper">
                     <div class="half__block">
                         <div class="iframe__wrapper iframe__wrapper_rocketscience">
-<!--                            <iframe-->
-<!--                                    class="iframe_resp iframe_rocketscience"-->
-<!--                                    src="./animations/rocketscience/index.html"-->
-<!--                                    seamless-->
-<!--                                    frameborder="0"-->
-<!--                                    allow="encrypted-media"-->
-<!--                                    loading="lazy"></iframe>-->
-                            <img src="./images/rocketscience.jpg" alt="">
+                            <iframe
+                                    class="iframe_resp iframe_rocketscience"
+                                    src="./animations/rocketscience/index.html"
+                                    seamless
+                                    frameborder="0"
+                                    allow="encrypted-media"
+                                    loading="lazy"></iframe>
+                            <img src="./images/rocketscience.jpg" alt="Задачи агронома">
                         </div>
-
                     </div>
                     <div class="half__block">
                         <div class="problem__item__text">
@@ -253,14 +283,14 @@
                     </div>
                     <div class="half__block">
                         <div class="iframe__wrapper iframe__wrapper_2hard">
-<!--                            <iframe-->
-<!--                                    class="iframe_resp iframe_2hard"-->
-<!--                                    src="./animations/2hard/index.html"-->
-<!--                                    seamless-->
-<!--                                    frameborder="0"-->
-<!--                                    allow="encrypted-media"-->
-<!--                                    loading="lazy"></iframe>-->
-                            <img src="./images/toohard.jpg" alt="">
+                            <iframe
+                                    class="iframe_resp iframe_2hard"
+                                    src="./animations/2hard/index.html"
+                                    seamless
+                                    frameborder="0"
+                                    allow="encrypted-media"
+                                    loading="lazy"></iframe>
+                            <img src="./images/toohard.jpg" alt="Обязанности сотрудников">
                         </div>
                     </div>
                 </div>
@@ -272,20 +302,21 @@
 
             <div class="solution__screen">
                 <div class="container_1370">
-<!--                    <div class="iframe__wrapper iframe__wrapper_hive">-->
-<!--                        <iframe-->
-<!--                                class="iframe_resp iframe_hive"-->
-<!--                                src="./animations/hive/hive.html"-->
-<!--                                seamless-->
-<!--                                frameborder="0"-->
-<!--                                allow="encrypted-media"-->
-<!--                                loading="lazy"></iframe>-->
-<!--                    </div>-->
+                    <div class="iframe__wrapper iframe__wrapper_hive">
+                        <iframe
+                                class="iframe_resp iframe_hive"
+                                src="./animations/hive/hive.html"
+                                seamless
+                                frameborder="0"
+                                allow="encrypted-media"
+                                loading="lazy"></iframe>
+                        <img src="./images/solution_bg.jpg" alt="Решение проблем опыления">
+                    </div>
                 </div>
                 <div class="solution__screen__text-wrapper">
                     <div class="solution__screen__text_1">Качественное опыление — залог высокой урожайности.</div>
                     <div class="solution__screen__text_2">Мы предлагаем упростить работу, связанную
-                        с опылынеием.
+                        с опылением.
                     </div>
                 </div>
             </div>
@@ -329,9 +360,14 @@
                         <div class="systema__item systema__item_hard">
                             <div class="systema__item__intro">
                                 <div class="title_h4">Аппаратная<br>часть</div>
-                                <img srcset="./images/system_0.webp"
-                                     src="./images/system_0.png" alt="Кибернетический улей"
-                                >
+                                <!--                                <img srcset="./images/system_0.webp"-->
+                                <!--                                     src="./images/system_0.png" alt="Кибернетический улей"-->
+                                <!--                                >-->
+                                <picture>
+                                    <source srcset="./images/system_0.webp" type="image/webp">
+                                    <img src="./images/system_0.png" alt="Кибернетический улей">
+                                </picture>
+
                                 <div class="systema__item__link">
                                     <svg id="uuid-a811491e-9a98-424b-bb4e-4323ed583f4c"
                                          width="48px" height="32px"
@@ -372,8 +408,13 @@
                         <div class="systema__item systema__item_soft">
                             <div class="systema__item__intro">
                                 <div class="title_h4">Программная<br>часть</div>
-                                <img srcset="./images/system_1.webp"
-                                     src="./images/system_1_sm.png" alt="Программа в смартфоне">
+                                <!--                                <img srcset="./images/system_1.webp"-->
+                                <!--                                     src="./images/system_1_sm.png" alt="Программа в смартфоне">-->
+                                <picture>
+                                    <source srcset="./images/system_1.webp" type="image/webp">
+                                    <img src="./images/system_1_sm.png" alt="Программа в смартфоне">
+                                </picture>
+
                                 <div class="systema__item__link">
                                     <svg id="uuid-a811491e-9a98-424b-bb4e-4323ed583f4c" width="48px" height="32px"
                                          data-name="Слой 2" xmlns="http://www.w3.org/2000/svg"
@@ -553,12 +594,10 @@
                 <h2 class="title_h2">Контакты</h2>
                 <div class="contacts__content">
                     <div class="contacts__block_1">
-<!--                        <div class="contacts__block_1__item">-->
-<!--                            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A96844ee20af7780bd080c8fd8414d757fed3094f93155e88c556bcb452205f2c&amp;width=530&amp;height=240&amp;lang=ru_RU&amp;scroll=false"></script>                        </div>-->
-<!--                        <div class="contacts__block_1__item">-->
-<!--&lt;!&ndash;                            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A321decf48e1f55fc380dd881573eed8cf927d2d702700ec1f06e1ec1b37ac5d6&amp;width=530&amp;height=240&amp;lang=ru_RU&amp;scroll=true"></script>&ndash;&gt;-->
-<!--                            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A321decf48e1f55fc380dd881573eed8cf927d2d702700ec1f06e1ec1b37ac5d6&amp;width=530&amp;height=240&amp;lang=ru_RU&amp;scroll=false"></script>-->
-<!--                        </div>-->
+                        <div class="contacts__block_1__item">
+                            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A96844ee20af7780bd080c8fd8414d757fed3094f93155e88c556bcb452205f2c&amp;width=530&amp;height=240&amp;lang=ru_RU&amp;scroll=false"></script>                        </div>
+                        <div class="contacts__block_1__item">
+                            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A321decf48e1f55fc380dd881573eed8cf927d2d702700ec1f06e1ec1b37ac5d6&amp;width=530&amp;height=240&amp;lang=ru_RU&amp;scroll=false"></script>                        </div>
                     </div>
                     <div class="contacts__block_2">
                         <ul class="contacts__list">
@@ -649,7 +688,7 @@
                 </a>
             </div>
             <div class="footer__copyright">
-                2024 (с) биоматика. Все права защищены
+                2024 (с) ООО "БИОМАТИКА" <span class="footer__nobr">ИНН 7811787350</span>. <span class="footer__nobr">Все права защищены</span>
             </div>
             <nav class="nav nav_footer">
                 <ul class="nav__list">

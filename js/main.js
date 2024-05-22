@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const POST_FORM_URL = 'https://lk.gurdy.ru/rest/public/staff/notify';
     const SUCCESS_MESSAGE = 'Ваша заявка успешно отправлена';
     const ERROR_MESSAGE = 'При отправке произошли проблемы! Повторите попытку позже или свяжитесь с нами иными способами.';
-    const modal = document.getElementById('modal');
+    // const modal = document.getElementById('modal');
 
     // modal.querySelector('.modal__dialog').addEventListener('click', e => {
     //   if (e.target === e.currentTarget) handlerCloseModal()
@@ -49,28 +49,28 @@ document.addEventListener('DOMContentLoaded', () => {
     //     }
     // })
 
-    function handlerOpenCallback(eTarget) {
-        modal.style.display = 'block';
-        setTimeout(() => modal.classList.add('open'), 50);
+    // function handlerOpenCallback(eTarget) {
+    //     modal.style.display = 'block';
+    //     setTimeout(() => modal.classList.add('open'), 50);
+    //
+    //     modal.querySelector('.btn_submit').textContent = eTarget.textContent;
+    //     modal.querySelector('.modal__title').textContent = eTarget.dataset.title;
+    //     document.form_callback.elements.modalName.value = eTarget.textContent;
+    //
+    //     document.addEventListener(
+    //         'keydown',
+    //         e => {
+    //             if (e.key === "Escape") handlerCloseModal()
+    //         },
+    //         {once: true}
+    //     )
+    // }
 
-        modal.querySelector('.btn_submit').textContent = eTarget.textContent;
-        modal.querySelector('.modal__title').textContent = eTarget.dataset.title;
-        document.form_callback.elements.modalName.value = eTarget.textContent;
-
-        document.addEventListener(
-            'keydown',
-            e => {
-                if (e.key === "Escape") handlerCloseModal()
-            },
-            {once: true}
-        )
-    }
-
-    function handlerCloseModal() {
-        modal.classList.remove('open');
-        modal.querySelector('.modal__status').textContent = '';
-        setTimeout(() => modal.style.display = 'none', 600);
-    }
+    // function handlerCloseModal() {
+    //     modal.classList.remove('open');
+    //     modal.querySelector('.modal__status').textContent = '';
+    //     setTimeout(() => modal.style.display = 'none', 600);
+    // }
 
     // async function postData(url = '', data = {}) {
     //     await fetch(url, {
@@ -102,8 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
      */
 
     const navMenu = document.querySelector('.header__right-block');
+    const menuBtn = document.getElementById('burgerButton')
 
-    document.getElementById('burgerButton').addEventListener('click', function (e) {
+    menuBtn.addEventListener('click', function (e) {
         e.preventDefault();
         e.currentTarget.classList.toggle('active');
         navMenu.classList.toggle('active');
@@ -117,8 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.nav_header .header__link')
         .forEach(link => link.addEventListener('click', () => {
-                document.querySelector('.nav_header').classList.remove('active');
-                document.getElementById('burgerButton').classList.remove('active');
+                // document.querySelector('.nav_header').classList.remove('active');
+                // document.getElementById('burgerButton').classList.remove('active');
+            closeMenu()
             }
         ))
 
@@ -128,47 +130,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function outClickHandler(e) {
         // console.log(e.currentTarget.closest('.header__right-block'))
-        console.log(e.target)
-        if (e.target !== navMenu && e.target.closest('.header__right-block') !== navMenu) {
+        // console.log(e.target)
+        // if (e.target !== navMenu && e.target.closest('.header__right-block') !== navMenu) {
+        //     closeMenu()
+        //     console.log('tut zakryvaem')
+        // }
+        if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
             closeMenu()
-            console.log('tut zakryvaem')
         }
     }
 
     function closeMenu() {
-
+        menuBtn.classList.remove('active');
+        navMenu.classList.remove('active');
     }
-
 
     /**
      *
      * @type {Swiper} Инициализация слайдера
      */
-    const swiper2 = new Swiper('#slider_benefits', {
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-        },
-        loop: true,
-        spaceBetween: 20,
-        autoplay: {
-            delay: 2000,
-        },
-        speed: 1000,
-        // navigation: {
-        //     nextEl: '.swiper-button-next',
-        //     prevEl: '.swiper-button-prev',
-        // },
-
-        breakpoints: {
-            480: {
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-            },
-        }
-    })
+    // const swiper2 = new Swiper('#slider_benefits', {
+    //     pagination: {
+    //         el: '.swiper-pagination',
+    //         clickable: true
+    //     },
+    //     loop: true,
+    //     spaceBetween: 20,
+    //     autoplay: {
+    //         delay: 2000,
+    //     },
+    //     speed: 1000,
+    //     breakpoints: {
+    //         480: {
+    //             navigation: {
+    //                 nextEl: '.swiper-button-next',
+    //                 prevEl: '.swiper-button-prev',
+    //             },
+    //         },
+    //     }
+    // })
 
     /**
      *
@@ -201,41 +201,70 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
     )
-
     /**
      * Масштабирование айфреймов по ширине обёртки
      */
-        // import ResizeObserver from './libs/ResizeObserver';
 
-    const FULL_IFRAME_WIDTH_RSCIENCE = 1105;
-    const FULL_IFRAME_WIDTH_2HARD = 1156;
-    const FULL_IFRAME_WIDTH_HIVE = 1620;
-    const rocketScience = document.querySelector('.iframe__wrapper_rocketscience');
-    const tooHard = document.querySelector('.iframe__wrapper_2hard');
-    const hive = document.querySelector('.iframe__wrapper_hive');
+    if (typeof ResizeObserver === 'function') {
 
-    if (!('ResizeObserver' in window)) {
-        import('./libs/ResizeObserver')
-    }
-    console.log(ResizeObserver)
-    console.log( new ResizeObserver(()=> {}))
-    console.log('text')
+        const FULL_IFRAME_WIDTH_RSCIENCE = 1105;
+        const FULL_IFRAME_WIDTH_2HARD = 1156;
+        const FULL_IFRAME_WIDTH_HIVE = 1620;
+        const rocketScience = document.querySelector('.iframe__wrapper_rocketscience');
+        const tooHard = document.querySelector('.iframe__wrapper_2hard');
+        const hive = document.querySelector('.iframe__wrapper_hive');
 
-    new ResizeObserver(() => fitIframeToWindow(rocketScience, FULL_IFRAME_WIDTH_RSCIENCE)).observe(rocketScience);
-    new ResizeObserver(() => fitIframeToWindow(tooHard, FULL_IFRAME_WIDTH_2HARD)).observe(tooHard);
-    new ResizeObserver(() => fitIframeToWindow(hive, FULL_IFRAME_WIDTH_HIVE)).observe(hive);
+        new ResizeObserver(() => fitIframeToWindow(rocketScience, FULL_IFRAME_WIDTH_RSCIENCE)).observe(rocketScience);
+        new ResizeObserver(() => fitIframeToWindow(tooHard, FULL_IFRAME_WIDTH_2HARD)).observe(tooHard);
+        new ResizeObserver(() => fitIframeToWindow(hive, FULL_IFRAME_WIDTH_HIVE)).observe(hive);
 
-    function fitIframeToWindow(iframeWrapper, fullIframeWidth = 100) {
-        const iframe = iframeWrapper.querySelector('iframe');
-        if (!iframe) {
-            return
+        function fitIframeToWindow(iframeWrapper, fullIframeWidth = 100) {
+            const iframe = iframeWrapper.querySelector('iframe');
+            if (!iframe) {
+                return
+            }
+
+            const wrapperWidth = iframeWrapper.getBoundingClientRect().width;
+            const ratio = wrapperWidth / fullIframeWidth;
+
+            iframe.style.transform = `scale(${ratio})`;
         }
 
-        const wrapperWidth = iframeWrapper.getBoundingClientRect().width;
-        const ratio = wrapperWidth / fullIframeWidth;
+        /**
+         * Проверка на поддержку API и запуск анимации при доскролле
+         */
 
-        iframe.style.transform = `scale(${ratio})`;
+        if (typeof IntersectionObserver === 'function') {
+
+            const optionsIO = {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.4,
+            };
+
+            let observer = new IntersectionObserver(handleIntersect, optionsIO);
+
+            let targets = document.querySelectorAll('.iframe__wrapper');
+            targets.forEach(target => observer.observe(target))
+
+            function handleIntersect(entries, observer) {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const wrapper = entry.target;
+
+                        wrapper.querySelector('iframe').style.display = 'block';
+                        wrapper.querySelector('img').style.display = 'none';
+                    } else {
+                        const wrapper = entry.target;
+
+                        wrapper.querySelector('img').style.display = 'block';
+                        wrapper.querySelector('iframe').style.display = 'none';
+                    }
+                })
+            }
+        }
     }
+
 
     /**
      * Открытие карточки .problem__fact
