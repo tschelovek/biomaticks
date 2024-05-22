@@ -324,6 +324,7 @@
       display: block
       font-size: 36px
       font-family: Nunito, sans-serif
+      color: black
     img
       opacity: 0.5
       width: 240px
@@ -357,25 +358,31 @@
       text-transform: uppercase
       text-align: right
 
-
 .contacts
   padding: 20px 0
   &__content
     margin-top: 20px
     display: flex
     gap: 40px
+    flex-flow: wrap
+
   &__block
     &_1
       flex: 4
       display: flex
       flex-flow: column
+      align-items: center
       gap: 40px
+      max-width: 100%
       &__item
         -moz-border-radius-topright: 20px
         border-top-right-radius: 20px
         -moz-border-radius-bottomright: 20px
         border-bottom-right-radius: 20px
+        display: flex
         overflow: hidden
+        &:not(:last-child)
+          margin-bottom: 16px
     &_2
       flex: 3
     &_3
@@ -423,6 +430,7 @@
   .form
     margin: 40px 0 20px
     &__fields-wrapper
+      margin: 0 auto
       padding: 0 15px
       display: flex
       flex-flow: column
@@ -474,6 +482,8 @@
   &__wrapper
     padding: 0
     overflow: hidden
+    & > img
+      max-width: 100%
     &_hive
       width: auto
       aspect-ratio: 1620/800
@@ -523,5 +533,9 @@
     -o-transform-origin: 0 0
     -webkit-transform-origin: 0 0
     transform-origin: 0 0
-
-
+  &_rocketscience
+    display: none
+  &_2hard
+    display: none
+  &_hive
+    display: none

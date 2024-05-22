@@ -120,6 +120,7 @@ main
 .logo
   display: inline-block
   min-width: 80px
+  z-index: 30
   &__link
     cursor: pointer
     &__image
@@ -385,6 +386,10 @@ main
   -webkit-animation: flip-vertical-left 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both
   animation: flip-vertical-left 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both
 
+.backflip-vertical-left
+  -webkit-animation: backflip-vertical-left 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both
+  animation: backflip-vertical-left 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both
+
 @-webkit-keyframes flip-vertical-left
   0%
     -webkit-transform: rotateY(0)
@@ -405,4 +410,21 @@ main
     transform: rotateY(-180deg)
 
 
+@-webkit-keyframes backflip-vertical-left
+  0%
+    -webkit-transform: rotateY(-180deg)
+    transform: rotateY(-180deg)
 
+  100%
+    -webkit-transform: rotateY(-360deg)
+    transform: rotateY(-360deg)
+
+
+@keyframes backflip-vertical-left
+  0%
+    -webkit-transform: rotateY(-180deg)
+    transform: rotateY(-180deg)
+
+  100%
+    -webkit-transform: rotateY(-360deg)
+    transform: rotateY(-360deg)
