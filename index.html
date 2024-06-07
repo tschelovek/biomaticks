@@ -68,34 +68,6 @@
                 <button type="button" id="burgerButton" class="btn_burger header__btn__burger">
                     <span>menu</span>
                 </button>
-                <script>
-                    const navMenu = document.querySelector('.header__right-block');
-                    const menuBtn = document.getElementById('burgerButton')
-
-                    menuBtn.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        menuBtn.classList.toggle('active');
-                        navMenu.classList.toggle('active');
-
-                        if (navMenu.classList.contains('active')) {
-                            setTimeout(() => document.addEventListener('click', outClickHandler), 10)
-                        } else {
-                            document.removeEventListener('click', outClickHandler)
-                        }
-                    })
-
-                    navMenu.querySelectorAll('.header__link').forEach(link => link.addEventListener('click', () => closeMenu()));
-
-                    function outClickHandler(e) {
-                        if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-                            closeMenu()
-                        }
-                    }
-                    function closeMenu() {
-                        menuBtn.classList.remove('active');
-                        navMenu.classList.remove('active');
-                    }
-                </script>
             </div>
         </div>
     </header>

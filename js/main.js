@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.querySelector('.header__right-block');
     const menuBtn = document.getElementById('burgerButton')
 
-    menuBtn.addEventListener('click', function (e) {
+    menuBtn.addEventListener('click',  (e) => {
         e.preventDefault();
         e.currentTarget.classList.toggle('active');
         navMenu.classList.toggle('active');
@@ -117,24 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     document.querySelectorAll('.nav_header .header__link')
-        .forEach(link => link.addEventListener('click', () => {
-                // document.querySelector('.nav_header').classList.remove('active');
-                // document.getElementById('burgerButton').classList.remove('active');
-            closeMenu()
-            }
-        ))
-
-    // navMenu.addEventListener('click', e => {
-    //   if (e.target === e.currentTarget) handlerCloseModal()
-    // });
+        .forEach(link => link.addEventListener('click', () => closeMenu()))
 
     function outClickHandler(e) {
-        // console.log(e.currentTarget.closest('.header__right-block'))
-        // console.log(e.target)
-        // if (e.target !== navMenu && e.target.closest('.header__right-block') !== navMenu) {
-        //     closeMenu()
-        //     console.log('tut zakryvaem')
-        // }
         if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
             closeMenu()
         }
