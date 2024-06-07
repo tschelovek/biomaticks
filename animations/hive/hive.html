@@ -50,8 +50,7 @@
       transform-style: preserve-3d;
     }
     .gwd-page-wrapper {
-      /*background-color: rgb(255, 255, 255);*/
-      background-color: #ECF7EB;
+      background-color: rgb(255, 255, 255);
       position: absolute;
       transform: translateZ(0px);
     }
@@ -367,7 +366,7 @@
 </head>
 
 <body>
-  <gwd-genericad id="gwd-ad" loop='true'>
+  <gwd-genericad id="gwd-ad">
     <gwd-pagedeck class="gwd-page-container" id="pagedeck">
       <gwd-page id="page1" class="gwd-page-wrapper gwd-page-size gwd-lightbox gwd-page-1ea2" data-gwd-width="1620px" data-gwd-height="800px" data-gwd-animation-labels="label-1,0">
         <div class="gwd-page-content gwd-page-size gwd-div-507i">
@@ -2173,7 +2172,7 @@
             <g id="Слой_15_xA0_Изображение_1__4">
             </g>
           </svg>
-          <gwd-image id="hive-09" source="assets/hive-09.svg" scaling="stretch" class="gwd-image-1yuy" data-gwd-tl-locked=""></gwd-image>
+          <gwd-image id="Улей-09" source="assets/hive-09.svg" scaling="stretch" class="gwd-image-1yuy" data-gwd-tl-locked=""></gwd-image>
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 72.4 83.7" preserveAspectRatio="none" class="gwd-svg-srez gwd-gen-1pfngwdanimation">
             <style type="text/css">
               .st0 {
@@ -2677,7 +2676,7 @@
             </g>
           </svg>
           <div class="gwd-animation-event event-1-animation" data-event-name="event-1" data-event-time="6300"></div>
-<!--          <gwd-image id="hive-09" source="assets/hive-09.svg" scaling="stretch" class="gwd-image-zjlb" data-gwd-tl-locked=""></gwd-image>-->
+          <gwd-image id="Улей-10" source="assets/hive-10.svg" scaling="stretch" class="gwd-image-zjlb" data-gwd-tl-locked=""></gwd-image>
         </div>
       </gwd-page>
     </gwd-pagedeck>
@@ -2685,8 +2684,6 @@
   <script type="text/javascript" id="gwd-init-code">
     (function() {
       var gwdAd = document.getElementById('gwd-ad');
-
-      gwdAd.loop = true
 
       /**
        * Handles the DOMContentLoaded event. The DOMContentLoaded event is
@@ -2706,9 +2703,6 @@
           setTimeout(function() {
             gwdAd.initAd();
           }, 1);
-          // setInterval(function() {
-          //   gwdAd.initAd();
-          // }, 3000);
         });
       }
 

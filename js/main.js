@@ -149,26 +149,26 @@ document.addEventListener('DOMContentLoaded', () => {
      *
      * @type {Swiper} Инициализация слайдера
      */
-    // const swiper2 = new Swiper('#slider_benefits', {
-    //     pagination: {
-    //         el: '.swiper-pagination',
-    //         clickable: true
-    //     },
-    //     loop: true,
-    //     spaceBetween: 20,
-    //     autoplay: {
-    //         delay: 2000,
-    //     },
-    //     speed: 1000,
-    //     breakpoints: {
-    //         480: {
-    //             navigation: {
-    //                 nextEl: '.swiper-button-next',
-    //                 prevEl: '.swiper-button-prev',
-    //             },
-    //         },
-    //     }
-    // })
+    const swiper2 = new Swiper('#slider_benefits', {
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        },
+        loop: true,
+        spaceBetween: 20,
+        autoplay: {
+            delay: 2000,
+        },
+        speed: 1000,
+        breakpoints: {
+            480: {
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            },
+        }
+    })
 
     /**
      *
